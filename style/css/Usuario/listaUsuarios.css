@@ -1,0 +1,12 @@
+ h1 {
+      padding-bottom: 30px;
+ }
+ 
+.alinearCentro { 
+    text-align: center;
+}
+
+#botonAgregar {
+    float: right !important;
+    margin-top: 20px;
+}
