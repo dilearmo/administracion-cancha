@@ -1,9 +1,10 @@
 
      <link href="<?=base_url()?>style/css/Usuario/listaUsuarios.css" type="text/css" rel="stylesheet">
+     <script type="text/javascript" src="<?=base_url()?>style/js/Usuario/usuarios.js"></script>
      
 	<body>
 		<div class="container">
-		    <div class="row" style="margin-bottom: 0px;">
+		    <div class="row" style="margin-bottom: 0px; padding-top:100px;">
 		        <div class="col s6">
 		              <h4>Mantenimiento Usuario</h4>
 		        </div>
@@ -28,8 +29,8 @@
                                     <th>Correo</th>
                                     <th>Teléfono</th>
                                     <th>Rol</th>
-                                    <th>Confiable</th>
-                                    <th>Eliminar</th>
+                                    <th>Habilitado</th>
+                                   <!-- <th>Eliminar</th> -->
                                     <th>Editar</th>
                                 </tr>
                             </thead>
@@ -54,22 +55,46 @@
                                         }
                                     ?>
                                     
-                                    <?php
+                                 <!--  </?php
                                         if($usuario->Es_confiable == 1) {
                                     ?>
                                     <td class="alinearCentro">Sí</td>
-                                    <?php
+                                    </?php
                                         }else{
                                     ?>
                                     <td class="alinearCentro">No</td>
-                                    <?php
+                                    </?php
                                         }
                                     ?>
+                                    
+                                    -->
+                                    
+                                    
+                                    <td class="checkHabilitado">
+                                        <?php
+                                            if($usuario->habilitado == 1) {
+                                        ?>
+                                            <input checked type="checkbox" id="check<?=$usuario->NombreUsuario?>" value="<?=$usuario->NombreUsuario?>"/>
+                                            <label for="check<?=$usuario->NombreUsuario?>"></label>
+                                        <?php
+                                            } 
+                                            
+                                            if($usuario->habilitado == 0) {
+                                        ?>
+                                            <input type="checkbox" id="check<?=$usuario->NombreUsuario?>" value="<?=$usuario->NombreUsuario?>"/>
+                                            <label for="check<?=$usuario->NombreUsuario?>"></label>
+                                        <?php    
+                                            }
+                                        ?>
+                                    </td>
+                                    <!--
                                     <td>
-                                        <a href="<?=base_url()?>index.php/usuarios/eliminar?idUsuario=<?= $usuario->IdUsuario ?>" class="btn-floating waves-effect waves-light">
+                                        <a href="/?//=base_url()?>index.php/usuarios/eliminar?idUsuario=</?//= $usuario->IdUsuario ?>" class="btn-floating waves-effect waves-light">
                                             <i class="material-icons">delete</i>
                                         </a>
                                     </td>
+                                    -->
+                                    
                                     <td>
                                         <a class="btn-floating waves-effect waves-light">
                                             <i class="material-icons">mode_edit</i>

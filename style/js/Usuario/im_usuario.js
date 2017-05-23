@@ -11,8 +11,44 @@ $(document).ready(function() {
     
 });
 
-
+// Valida si el nombre de usuario existe mediante un web service
 function existeNombreUsuario() {
+    $('.bloquearBtn').attr('disabled', true);
+    var nombreUsuario = $.trim($('#nombreUsuario').val());
+    if(camposValidos(nombreUsuario)) { // Valida que los campos necesarios no estén vacíos
+        $('#formNuevoUsuario').submit(); 
+    } else {
+        $('.bloquearBtn').attr('disabled', false);
+        toastr.warning("Es necesario llenar todos<br>los campos");
+    }
+}
+
+
+// Valda mediante un web service si la cédula ya existe en la base de datos
+function existeCedula(cedula) {
+    $.ajax({
+        url: base_url + 'index.php/WSUsuario/existeCedulaUsuario?cedula=' + cedula,
+        timeout: 10000,
+        dataType: 'jsonp',
+        success: function(result) {
+            if(result == false) {
+                $('#formNuevoUsuario').submit(); // Envía el formulario
+            } else {
+                toastr.error('La cédula ingresada ya existe');
+            }
+        },
+        error: function() {
+            toastr.warning('Hubo un problema al conectar<br>con la base de datos.<br>Por favor inténtelo de nuevo.');
+        }
+    });
+}
+
+
+
+
+
+function existeNombreUsuariooo() {
+    alert(base_url);
     $('.bloquearBtn').attr('disabled', true);
     var nombreUsuario = $.trim($('#nombreUsuario').val());
     if(camposValidos(nombreUsuario)) { // Valida que los campos necesarios no estén vacíos
@@ -53,4 +89,25 @@ function camposValidos(nombreUsuario) {
     } else {
         return false;
     }
+}
+
+// Valida si el nombre de usuario existe al dejar el input (evento blur)
+function existeNombreUsuarioBlur() {
+    var nombreUsuario = $.trim($('#nombreUsuario').val());
+    $.ajax({
+        url: base_url + 'index.php/WSUsuario/existeNombreUsuario?nombreUsuario='+nombreUsuario,
+        timeout: 10000,
+        dataType: 'jsonp',
+        success: function(result) {
+            if(result == true) {
+                toastr.error('El nombre de usuario ya existe');
+                 $('.bloquearBtn').attr('disabled', true);
+            }else {
+                 $('.bloquearBtn').attr('disabled', false);
+            }
+        },
+        error: function() {
+            toastr.warning('Hubo un problema al conectar<br>con la base de datos.<br>Por favor inténtelo de nuevo.');
+        }
+    });
 }

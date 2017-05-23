@@ -7,3 +7,18 @@
     margin-top: 20px;
 }
 
+.scroll {
+max-height: 540px !important;
+height: 540px !important;
+overflow-y: scroll !important;
+overflow-x: hidden !important;
+}
+
+#outer {
+  width: 100%;
+  text-align: center;
+}
+
+#inner {
+  display: inline-block;
+}

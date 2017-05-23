@@ -49,19 +49,19 @@ class Usuarios extends CI_Controller {
 	
     // Función que recibe los datos del usuario que se quiere agregar
     public function agregar() {
-        
+
         // Recibe los datos que vienen por POST
-        $nombre = $this->input->post('Nombre');
-        $apellidos = $this->input->post('Apellidos');
-        $nombreUsuario = $this->input->post('NombreUsuario');
-        $contrasena = $this->input->post('Contrasena');
-        $telefono = $this->input->post('Telefono');
-        $correo = $this->input->post('Correo');
+        $nombre = $this->input->post('nombre');
+        $apellidos = $this->input->post('apellidos');
+        $nombreUsuario = $this->input->post('nombreUsuario');
+        $contrasena = $this->input->post('contrasena');
+        $telefono = $this->input->post('telefono');
+        $correo = $this->input->post('correo');
         
         // Valida que todos los datos no estén vacíos
         if(!empty(trim($nombre)) && !empty(trim($apellidos)) && !empty(trim($correo))
             && !empty(trim($nombreUsuario)) && !empty(trim($contrasena)) && isset($telefono)) {
-            $this->Usuario_model->insertar($nombreUsuario, $contrasena, $tipoUsuario, $cedula, $nombre, $apellidos);
+            $this->Usuario_model->insertarUsuario($nombreUsuario, $contrasena, $telefono, $correo, $nombre, $apellidos , 1);
         }
         // Redirecciona a la lista de usuarios
         redirect('usuarios');

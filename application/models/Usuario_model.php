@@ -28,6 +28,13 @@
 	            return false;
 	        }
 	    }
+	    
+		function actualizarHabilitar($NombreUsuario, $habilitado)
+		{
+			$this->db->set('habilitado', $habilitado); //value that used to update column  
+			$this->db->where('NombreUsuario', $NombreUsuario); //which row want to upgrade  
+			return $this->db->update('Usuario');
+		}
 
 		function existeNombreUsuario($nombre) {
 		   $this->db->where("NombreUsuario", $nombre);
@@ -70,7 +77,7 @@
 			}
 		}
 		
-	    function insertarUsuario($Contrasena, $Nombre, $Apellidos, $Telefono, $NombreUsuario, $Correo) {
+	    function insertarUsuario($Contrasena, $Nombre, $Apellidos, $Telefono, $NombreUsuario, $Correo ,$es_admin) {
 	    	//ACUERDESE AGREGAR LA VARIABLE, Y ME MANDA UN MENSAJE CUANDO YA ESTE HECHO PARA YO CAMBIAR MIS METODOS.
            if($this->existeNombreUsuarioycorreo($NombreUsuario, $Correo) == false) 
            {
@@ -82,8 +89,8 @@
 		          'Telefono'=>$Telefono,
 		          'NombreUsuario'=>$NombreUsuario,
 		          'Correo'=>$Correo,
-		          'Es_confiable'=>1,
-		          'Es_administrador'=>0
+		          'habilitado'=>1,
+		          'Es_administrador'=> $es_admin
 	           );
 
 	         $this->db->insert('Usuario',$data);

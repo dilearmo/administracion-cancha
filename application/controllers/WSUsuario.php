@@ -11,6 +11,19 @@
         $this->load->model('Usuario_model');
       }
       
+  		public function actualizarHabilitar_get() {
+  			$NombreUsuario = $this->input->get('NombreUsuario');
+  			$habilitado = $this->input->get('habilitado');
+  			if(isset($NombreUsuario) && isset($habilitado)){
+    				// Se establece la respuesta con respecto al resultado de la consulta a la base de datos
+    				$respuesta = $this->Usuario_model->actualizarHabilitar($NombreUsuario, $habilitado);
+    				//Se envía TRUE si se realizó bien la inserción de los datos de lo contrario FALSE
+    				$this->response( true, REST_Controller::HTTP_OK);  	
+  			} else{
+  				  $this->response(false);
+  			}
+		}
+      
       public function existeNombreUsuario_get() {
   			$nombreUsuario = $this->input->get('nombreUsuario');
   			if (isset($nombreUsuario)) {
