@@ -11,6 +11,13 @@
         $this->load->model('Usuario_model');
       }
       
+      
+      
+     	/*
+    	*
+    	testeado por MJ
+    	*
+    	*/
   		public function actualizarHabilitar_get() {
   			$NombreUsuario = $this->input->get('NombreUsuario');
   			$habilitado = $this->input->get('habilitado');
@@ -24,6 +31,11 @@
   			}
 		}
       
+    	/*
+    	*
+    	testeado por MJ
+    	*
+    	*/
       public function existeNombreUsuario_get() {
   			$nombreUsuario = $this->input->get('nombreUsuario');
   			if (isset($nombreUsuario)) {
@@ -57,7 +69,7 @@
   		$Correo=$this->input->get('Correo');
   			if (isset($Contrasena) && isset($Nombre) && isset($Apellidos) && isset($Telefono) && isset($NombreUsuario) && isset($Correo)) {
   			  
-  			  $respuesta = $this->Usuario_model->insertarUsuario($Contrasena,$Nombre,$Apellidos,$Telefono,$NombreUsuario,$Correo);
+  			  $respuesta = $this->Usuario_model->insertarUsuario($Contrasena,$Nombre,$Apellidos,$Telefono,$NombreUsuario,$Correo,1);
   			  
   			  $this->response($respuesta);
   			  

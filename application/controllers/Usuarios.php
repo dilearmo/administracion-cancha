@@ -33,11 +33,13 @@ class Usuarios extends CI_Controller {
 		$this->load->view('Usuario/Usuario', $data);
 	}
 	
+	
 	public function nuevoUsuario() {
 		$this->load->view('masterPage');
 		$this->load->view('Usuario/nuevoUsuario');
 	}
 	
+	/*
 	public function eliminar(){
 		$id = $this->input->get('idUsuario');
 		if(isset($id)){
@@ -46,7 +48,13 @@ class Usuarios extends CI_Controller {
         // Redirecciona a la lista de usuarios
         redirect('usuarios');
 	}
+	*/
 	
+	/*
+	*
+	testeado por MJ
+	*
+	*/
     // Función que recibe los datos del usuario que se quiere agregar
     public function agregar() {
 

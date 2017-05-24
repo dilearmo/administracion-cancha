@@ -18,11 +18,17 @@
 		
 		
 		function insertarCostos($costo,$dia,$hora) {
-	     
+	     try{
 	     $update = array('Precio'=>$costo);
          $this->db->where('NombreDia', $dia); 
          $this->db->where('Hora', $hora);
          
          $this->db->update('HoraReservable', $update);
-		}
+         return "correcto" ;
+         
+	     } catch(E $e ) {
+	     	return "incorrecto" ;
+	     }
+	     	
+	     }
 	}

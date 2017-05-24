@@ -77,6 +77,8 @@
 			}
 		}
 		
+		
+		
 	    function insertarUsuario($Contrasena, $Nombre, $Apellidos, $Telefono, $NombreUsuario, $Correo ,$es_admin) {
 	    	//ACUERDESE AGREGAR LA VARIABLE, Y ME MANDA UN MENSAJE CUANDO YA ESTE HECHO PARA YO CAMBIAR MIS METODOS.
            if($this->existeNombreUsuarioycorreo($NombreUsuario, $Correo) == false) 

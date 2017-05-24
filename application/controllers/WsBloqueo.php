@@ -29,6 +29,44 @@ class WsBloqueo extends REST_Controller {
 		$this->response(true);
 	}
 	
+	public function bloqueables_get()
+	{
+		$fecha = $this->input->get('fecha');
+	    $dia = $this->traducirDia(date('D', strtotime($fecha)));
+	    $data = $this->Bloqueo_model->bloqueables($dia,$fecha);
+		$this->response($data);
+	}
+	
+	
+	    public function traducirDia($dia)
+      {
+        switch ($dia)
+        {
+            case "Mon":
+                return "Lunes";
+                break;
+            case "Tue":
+                return "Martes";
+                break;
+            case "Wed":
+                return "Miercoles";
+                break;
+            case "Thu":
+                return "Jueves";
+                break;
+            case "Fri":
+                return "Viernes";
+                break;
+            case "Sat":
+                return "Sabado";
+                break;
+            case "Sun":
+                return "Domingo";
+                break;
+                
+        }
+      }
+	
 	
 	
 }

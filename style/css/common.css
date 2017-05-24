@@ -6,7 +6,7 @@
 th {
     background-color: #1B5E20;
     color: white;
-    border-radius: 0px;
+    border-radius: 0px !important;
 }
 
 
@@ -18,3 +18,10 @@ button.btn {
     
 }
 
+.NavLateral {
+    width: 15% !important;
+}
+
+.ContentPage {
+    width: 85% !important;
+}

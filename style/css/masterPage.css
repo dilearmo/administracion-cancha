@@ -8,3 +8,7 @@
     overflow-x: hidden;
 }
 
+nav {
+    height: 50px !important;
+    background-color: #212121 !important;
+}

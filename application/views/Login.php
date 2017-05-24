@@ -4,11 +4,39 @@
     <div class="form">
     
       <ul class="tab-group">
-        <li class="tab active"><a href="#signup">Registrarse</a></li>
-        <li class="tab"><a href="#login">Iniciar sesión</a></li>
+        <!--<li class="tab"><a href="#signup">Registrarse</a></li>-->
+        <!--<li class="tab active"><a href="#login">Inicio de sesión</a></li>-->
       </ul>
       
       <div class="tab-content">
+        
+        <div id="login">   
+          <h3 id="welcomeMessage">Bienvenido</h3>
+          
+          <form action="/" method="post">
+          
+          <div class="field-wrap">
+            <label>
+              Nombre de usuario<span class="req">*</span>
+            </label>
+            <input type="email"required autocomplete="off"/>
+          </div>
+          
+          <div class="field-wrap">
+            <label>
+              Contraseña<span class="req">*</span>
+            </label>
+            <input type="password"required autocomplete="off"/>
+          </div>
+          
+          <p class="forgot"><a href="#">¿Olvidó su contraseña?</a></p>
+          
+          <button class="button button-block"/>Iniciar sesión</button>
+          
+          </form>
+        
+        </div>
+        
         <div id="signup">   
           <h2 class="white-text center">Ingrese sus datos</h2>
           
@@ -49,33 +77,7 @@
           </form>
           
         </div>
-        
-        <div id="login">   
-          <h1>Bienvenido</h1>
-          
-          <form action="/" method="post">
-          
-          <div class="field-wrap">
-            <label>
-              Nombre de usuario<span class="req">*</span>
-            </label>
-            <input type="email"required autocomplete="off"/>
-          </div>
-          
-          <div class="field-wrap">
-            <label>
-              Contraseña<span class="req">*</span>
-            </label>
-            <input type="password"required autocomplete="off"/>
-          </div>
-          
-          <p class="forgot"><a href="#">¿Olvidó su contraseña?</a></p>
-          
-          <button class="button button-block"/>Iniciar sesión</button>
-          
-          </form>
-        
-        </div>
+      
       
       </div><!-- tab-content -->
       

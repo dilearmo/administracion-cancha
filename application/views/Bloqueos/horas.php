@@ -4,7 +4,7 @@
             
         </div>    
         <div class="container">
-            <div class="row" id="rowTopTable">
+            <div class="row"style="margin-bottom:30px" id="rowTopTable">
                 <h5 class="col m4">Bloqueos</h5>
                 <a href="https://cancha-la-primavera-dilearmo.c9users.io/index.php/Bloqueos/nuevo" class="col m2 offset-m6 btn waves-effect waves-light" id="agregarHora">
                     Agregar
