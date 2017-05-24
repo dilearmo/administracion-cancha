@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
+	public function __construct(){
+		parent::__construct();
+		$this->load->helper('form');
+		$this->load->model('Usuario_model');
+	}
+      
 	/**
 	 * Index Page for this controller.
 	 *
@@ -22,5 +28,23 @@ class Login extends CI_Controller {
 	{
 		$this->load->view('masterPage');
 		$this->load->view('login');
+	}
+	
+	public function guardarUsuarioEnSesion()
+	{
+		$nombreUsuario = $this->input->post('nombreUsuario');
+		$datosUsuario = $this->Usuario_model->obtenerUsuarioPorNombreUsuario($nombreUsuario);
+		
+		if(isset($datosUsuario) && $datosUsuario != false) {
+			$datos = array(
+			        'NombreUsuario'  => $nombreUsuario,
+			        'Nombre'     => $datosUsuario->Nombre,
+			        'Apellidos' => $datosUsuario->Apellidos,
+			        'Correo' => $datosUsuario->Correo,
+					'Es_administrador' => $datosUsuario->Es_administrador
+			);
+			$this->session->set_userdata($datos);
+			redirect('bloqueos');
+		}
 	}
 }

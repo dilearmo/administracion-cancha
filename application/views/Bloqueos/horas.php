@@ -1,3 +1,9 @@
+<?php
+    if($this->session->userdata('NombreUsuario') == null) {
+        redirect('home');
+    }
+?>
+
 <link rel="stylesheet" href="../style/css/Horas/horas.css" type="text/css" />
 <script type="text/javascript" src="<?=base_url()?>/style/js/Bloqueos/Bloqueos.js"></script>
         <div style="height:40px;">

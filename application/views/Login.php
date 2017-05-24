@@ -13,25 +13,25 @@
         <div id="login">   
           <h3 id="welcomeMessage">Bienvenido</h3>
           
-          <form action="/" method="post">
+          <form id="loginForm" action="login/guardarUsuarioEnSesion" method="post">
           
           <div class="field-wrap">
             <label>
               Nombre de usuario<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input type="text" autocomplete="off" id="nombreUsuario" name="nombreUsuario"/>
           </div>
           
           <div class="field-wrap">
             <label>
               Contraseña<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input type="password" autocomplete="off" id="contrasena" name="contrasena"/>
           </div>
           
           <p class="forgot"><a href="#">¿Olvidó su contraseña?</a></p>
           
-          <button class="button button-block"/>Iniciar sesión</button>
+          <button class="button button-block" onclick="existeNombreUsuario()" type="button"/>Iniciar sesión</button>
           
           </form>
         
