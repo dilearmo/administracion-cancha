@@ -12,6 +12,11 @@
                         <input id="contrasena"  name="contrasena" type="password" class="validate">
                         <label for="contrasena">Contraseña</label>
                     </div>
+                    
+                    <div class="input-field col s6">
+                        <input id="contrasena2"  name="contrasena2" type="password" class="validate">
+                        <label for="contrasena2">Repetir nueva contraseña</label>
+                    </div>
                     <div class="input-field col s6">
                         <input id="nombre" name="nombre" type="text" class="validate">
                         <label for="nombre">Nombre</label>
@@ -21,7 +26,7 @@
                         <label for="apellidos">Apellidos</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="telefono" name="telefono" type="text" class="validate">
+                        <input id="telefono" name="telefono" type="number" class="validate">
                         <label for="telefono">Teléfono</label>
                     </div>
                     <div class="input-field col s6">

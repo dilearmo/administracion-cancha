@@ -69,7 +69,8 @@ class Usuarios extends CI_Controller {
         // Valida que todos los datos no estén vacíos
         if(!empty(trim($nombre)) && !empty(trim($apellidos)) && !empty(trim($correo))
             && !empty(trim($nombreUsuario)) && !empty(trim($contrasena)) && isset($telefono)) {
-            $this->Usuario_model->insertarUsuario($nombreUsuario, $contrasena, $telefono, $correo, $nombre, $apellidos , 1);
+                //$Contrasena, $Nombre, $Apellidos, $Telefono, $NombreUsuario, $Correo ,$es_admin
+            $this->Usuario_model->insertarUsuario($contrasena,$nombre,$apellidos, $telefono,$nombreUsuario, $correo, 1);
         }
         // Redirecciona a la lista de usuarios
         redirect('usuarios');
