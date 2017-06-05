@@ -8,7 +8,46 @@ var base_url;
  
   $(document).ready(function() {
    // $('select').material_select();
+        $('html, body').css({
+            overflow: 'hidden',
+            height: '100%'
+        });
+   
        base_url = $('#base_url').val();
+       
+        /* El sigueinte bloque de código se encarga de filtrar la tabla de usuarios*/
+    /* ------------------- INICIO BLOQUE BÚSQUEDA -------------------------*/
+    $('#noResultadosBusqueda').hide();
+    
+    $("#busquedaUsuarios").keyup(function () {
+        var searchTerm = $("#busquedaUsuarios").val();
+        var listItem = $('#tablaUsuarios tbody').children('tr');
+        var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+    
+    $.extend($.expr[':'], {'containsi': function(elem, i, match, array) {
+        return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+    }});
+    
+    $("#tablaUsuarios tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+        $(this).attr('visible','false');
+        $(this).hide();
+    });
+
+    $("#tablaUsuarios tbody tr:containsi('" + searchSplit + "')").each(function(e){
+        $(this).attr('visible','true');
+        $(this).show();
+    });
+    
+    var jobCount = $('#tablaUsuarios tbody tr[visible="true"]').length;
+        $('.counter').text(jobCount + ' item');
+    
+    if(jobCount == '0') {
+        $('#noResultadosBusqueda').show();
+    } else {
+        $('#noResultadosBusqueda').hide();
+    }});
+    
+    /* ------------------- FIN BLOQUE BÚSQUEDA -------------------------*/
    
      $('#cuerpoTabla :checkbox').change(function () {
         if ($(this).is(':checked')) {

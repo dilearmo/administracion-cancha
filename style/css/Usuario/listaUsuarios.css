@@ -14,3 +14,10 @@
 .checkHabilitado {
     text-align: center;
 }
+
+#scrollHoras {
+max-height: 340px !important;
+height: 340px !important;
+overflow-y: scroll !important;
+overflow-x: hidden !important;
+}

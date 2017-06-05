@@ -1,0 +1,14 @@
+.calendario {
+    height:52px;
+}
+
+.horas div {
+   
+    height: auto;
+}
+
+.horas div div {
+     border:2px solid black;
+    height: 50px;
+    width: 100%;
+}

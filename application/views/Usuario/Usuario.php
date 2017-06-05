@@ -2,8 +2,7 @@
      <link href="<?=base_url()?>style/css/Usuario/listaUsuarios.css" type="text/css" rel="stylesheet">
      <script type="text/javascript" src="<?=base_url()?>style/js/Usuario/usuarios.js"></script>
      
-	<body>
-		<div class="container">
+		<div class="container-2_0" >
 		    <div class="row" style="margin-bottom: 0px; padding-top:100px;">
 		        <div class="col s6">
 		              <h4>Mantenimiento Usuario</h4>
@@ -18,7 +17,8 @@
                 </div>
             </div>
             <div class="tableWrapper">
-                <table class="table table-striped">
+                 <div id="scrollHoras">
+                <table class="table table-striped col s12">
                      <?php
                         if(!empty($todosUsuarios)) {
                       ?>
@@ -86,20 +86,20 @@
                                         <?php    
                                             }
                                         ?>
-                                    </td>
-                                    <!--
-                                    <td>
-                                        <a href="/?//=base_url()?>index.php/usuarios/eliminar?idUsuario=</?//= $usuario->IdUsuario ?>" class="btn-floating waves-effect waves-light">
-                                            <i class="material-icons">delete</i>
-                                        </a>
-                                    </td>
-                                    -->
-                                    
-                                    <td>
-                                        <a class="btn-floating waves-effect waves-light">
-                                            <i class="material-icons">mode_edit</i>
-                                        </a>
-                                    </td>
+                                        </td>
+                                        <!--
+                                        <td>
+                                            <a href="/?//=base_url()?>index.php/usuarios/eliminar?idUsuario=</?//= $usuario->IdUsuario ?>" class="btn-floating waves-effect waves-light">
+                                                <i class="material-icons">delete</i>
+                                            </a>
+                                        </td>
+                                        -->
+                                        
+                                        <td>
+                                            <a class="btn-floating waves-effect waves-light">
+                                                <i class="material-icons">mode_edit</i>
+                                            </a>
+                                        </td>
                                 </tr>
                                 <?php
                                     }
@@ -111,8 +111,8 @@
                                         echo '<h3>No hay usuarios registrados</h3>';    
                                     }
                                 ?>
-                </table>
-            </div>
+                    </table>
+                </div>
+             </div>
 		</div>
-	</body>
-</html>
+

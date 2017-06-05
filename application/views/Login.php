@@ -1,3 +1,9 @@
+<?php
+    if($this->session->userdata('NombreUsuario') != null) {
+        redirect('bloqueos');
+    }
+?>
+  
   <link rel="stylesheet" href="../style/css/Login/login.css">
 
   <body>

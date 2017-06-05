@@ -8,13 +8,17 @@
 		}
 		
 		function listarUsuarios(){
-			$consulta= $this->db->get('Usuario');
+		$this->db->from("Usuario");
+          $this->db->order_by("Nombre", "asc");
+          $consulta = $this->db->get(); 
+			
 			if($consulta->num_rows() > 0) {
 				return $consulta->result();
 			} else {
 				return false;
 			}
 		}
+		
 		
 		 function eliminarUsuario($IdUsuario)
 	    {
@@ -77,29 +81,53 @@
 			}
 		}
 		
+		function obtenerUsuarios() {
+		$consulta = $this->db->get('Usuario');
+		if($consulta->num_rows() > 0) 
+		{
+				
+			return $consulta->result()[0];
 		
+		} else {
+			return false;
+			}
+		}
+		
+		// obtiene los usuarios administradores si el parametro es 'Es_administrador' y 1
+		//Obtiene los usuarios de la aplicacion si el parametro es 'Es_administrador' y 0
+		//Obtiene los usuarios confiables si el parametro es 'habilitado' y 1
+		//Obtiene los usuarios no confiables si el parametro es 'habilitado' y 0
+		function obtenerUsuariosAdmUsuConfNoConf($nombreColumna, $param) {
+	      $this->db->where($nombreColumna, $param);
+		  $this->db->from("Usuario");
+          $this->db->order_by("Nombre", "asc");
+          $consulta = $this->db->get(); 
+			
+			if($consulta->num_rows() > 0) {
+				return $consulta->result();
+			} else {
+				return false;
+			}
+		}
 		
 	    function insertarUsuario($Contrasena, $Nombre, $Apellidos, $Telefono, $NombreUsuario, $Correo ,$es_admin) {
 	    	//ACUERDESE AGREGAR LA VARIABLE, Y ME MANDA UN MENSAJE CUANDO YA ESTE HECHO PARA YO CAMBIAR MIS METODOS.
-           if($this->existeNombreUsuarioycorreo($NombreUsuario, $Correo) == false) 
-           {
-    
-	          $data = array(
-		          'Contrasena'=>md5($Contrasena),
-		          'Nombre'=>$Nombre,
-		          'Apellidos'=>$Apellidos,
-		          'Telefono'=>$Telefono,
-		          'NombreUsuario'=>$NombreUsuario,
-		          'Correo'=>$Correo,
-		          'habilitado'=>1,
-		          'Es_administrador'=> $es_admin
-	           );
-
-	         $this->db->insert('Usuario',$data);
-	         return true;
-           } else {
-           	return false;
-           }
+			if($this->existeNombreUsuarioycorreo($NombreUsuario, $Correo) == false) {
+				$data = array(
+			          'Contrasena'=>md5($Contrasena),
+			          'Nombre'=>$Nombre,
+			          'Apellidos'=>$Apellidos,
+			          'Telefono'=>$Telefono,
+			          'NombreUsuario'=>$NombreUsuario,
+			          'Correo'=>$Correo,
+			          'habilitado'=>1,
+			          'Es_administrador'=> $es_admin
+		         );
+				 $this->db->insert('Usuario',$data);
+				 return true;
+            } else {
+				return false;
+            }
        }
  }
          //https://cancha-la-primavera-dilearmo.c9users.io/index.php/WSUsuario/RegistroUsuario?Contrasena=Contrasena&Nombre=Nombre&Apellidos=Apellidos&Telefono=123456789&NombreUsuario=NombreUsuario&Correo=jeanpy@hotmail.com

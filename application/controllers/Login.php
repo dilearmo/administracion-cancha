@@ -47,4 +47,9 @@ class Login extends CI_Controller {
 			redirect('bloqueos');
 		}
 	}
+	
+	public function logout() {
+		$this->session->sess_destroy();
+		redirect('home');
+	}
 }

@@ -51,10 +51,6 @@ $('.tab a').on('click', function (e) {
 });
 
 $(document).ready(function() {
-  
-});
-
-$(document).ready(function() {
     if (typeof(Storage) !== "undefined") {
         var nombreUsuario = localStorage.getItem('NombreUsuario');
         if(nombreUsuario != undefined && nombreUsuario != "") {

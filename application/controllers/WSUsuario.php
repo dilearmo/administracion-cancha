@@ -61,15 +61,15 @@
   		
   		public function RegistroUsuario_get() {
   		  
-  		$Contrasena=$this->input->get('Contrasena');
-  		$Nombre=$this->input->get('Nombre');
-  		$Apellidos=$this->input->get('Apellidos');
-  		$Telefono=$this->input->get('Telefono');
-  		$NombreUsuario=$this->input->get('NombreUsuario');
-  		$Correo=$this->input->get('Correo');
+  		$Contrasena = $this->input->get('contrasena');
+  		$Nombre = $this->input->get('nombre');
+  		$Apellidos = $this->input->get('apellidos');
+  		$Telefono = $this->input->get('telefono');
+  		$NombreUsuario = $this->input->get('nombreUsuario');
+  		$Correo = $this->input->get('correo');
   			if (isset($Contrasena) && isset($Nombre) && isset($Apellidos) && isset($Telefono) && isset($NombreUsuario) && isset($Correo)) {
   			  
-  			  $respuesta = $this->Usuario_model->insertarUsuario($Contrasena,$Nombre,$Apellidos,$Telefono,$NombreUsuario,$Correo,1);
+  			  $respuesta = $this->Usuario_model->insertarUsuario($Contrasena,$Nombre,$Apellidos,$Telefono,$NombreUsuario,$Correo,0);
   			  
   			  $this->response($respuesta);
   			  

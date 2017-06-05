@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Welcome to CodeIgniter</title>
+		<title>Cancha la Primavera</title>
 		
 	
 	
@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="NavLateral-Nav">
                 <ul class="full-width">
                     <li>
-                        <a href="home.html" class="center-align waves-effect waves-light">Vista de Horario</a>
+                        <a href="https://cancha-la-primavera-dilearmo.c9users.io/index.php/Calendario/index" class="center-align waves-effect waves-light">Vista de Horario</a>
                     </li>
                     <li class="NavLateralDivider"></li>
                     <li>
@@ -56,12 +56,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li><a href="https://cancha-la-primavera-dilearmo.c9users.io/index.php/Usuarios/index" class=" center-align waves-effect waves-light">Lista de Usuarios</a></li>
                             <li class="NavLateralDivider"></li>
                             <li><a href="https://cancha-la-primavera-dilearmo.c9users.io/index.php/Usuarios/nuevoUsuario" class="center-align waves-effect waves-light">Nuevo Usuario</a></li>
+                            <li class="NavLateralDivider"></li>
+                            <li><a href="https://cancha-la-primavera-dilearmo.c9users.io/index.php/Usuarios/consultarUsuarios" class="center-align waves-effect waves-light">Consultar Usuarios</a></li>
                         </ul>
                         </li>
                     <li class="NavLateralDivider"></li>
                     <li>
 
-                         <a href="https://cancha-la-primavera-dilearmo.c9users.io/index.php/Bloqueos/index"class="center-align" >Gestión de bloqueos</a>
+                         <a href="https://cancha-la-primavera-dilearmo.c9users.io/index.php/Bloqueos"class="center-align" >Gestión de bloqueos</a>
                     </li>
                        <li class="NavLateralDivider"></li>
                     <li>
@@ -70,11 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </li>
                     <li class="NavLateralDivider"></li>
                     <li>
-                        <a href="#" class="NavLateral-DropDown center-align waves-effect waves-light">Gestión de reservas</a>
-                        <ul class="full-width">
-                            <li><a href="template.html" class="waves-effect waves-light">Crear una reserva</a></li>
-                            <li><a href="template.html" class="waves-effect waves-light">Editar reservas</a></li>
-                        </ul>
+                        <a href="https://cancha-la-primavera-dilearmo.c9users.io/index.php/reservas" class="center-align">Gestión de reservas</a>
                     </li>   
                 </ul>
             </div>  

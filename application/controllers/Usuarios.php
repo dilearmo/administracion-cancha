@@ -33,6 +33,15 @@ class Usuarios extends CI_Controller {
 		$this->load->view('Usuario/Usuario', $data);
 	}
 	
+	public function consultarUsuarios() {
+	    $data["usuariosAdministradores"] = $this->Usuario_model->obtenerUsuariosAdmUsuConfNoConf("Es_administrador", 1);
+	    $data["usuariosAplicacion"] = $this->Usuario_model->obtenerUsuariosAdmUsuConfNoConf("Es_administrador", 0);
+        $data["usuariosConfiables"] = $this->Usuario_model->obtenerUsuariosAdmUsuConfNoConf("habilitado", 1);
+	    $data["usuariosNoConfiables"] = $this->Usuario_model->obtenerUsuariosAdmUsuConfNoConf("habilitado", 0);
+		$this->load->view('masterPage');
+		$this->load->view('Usuario/consultarUsuario', $data); 
+	}
+	
 	
 	public function nuevoUsuario() {
 		$this->load->view('masterPage');

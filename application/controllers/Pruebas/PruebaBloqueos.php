@@ -11,7 +11,7 @@ class PruebaBloqueos extends CI_Controller {
     
     public function index() { 
    $this->insertarBlockeo('2017-10-10','Martes','8');
-   //$this->eliminarBlockeo('13');
+   $this->eliminarBlockeo('32');
     }
     
  public function insertarBlockeo($fecha, $dia, $hora) {

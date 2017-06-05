@@ -34,6 +34,7 @@ class Bloqueo_model extends CI_Model
           try {
         $this->db->where('id', $id);
         $this->db->delete('Bloqueo');
+        
         return "correcto";
           } catch (Exception $e) {
         return "incorrecto";
@@ -57,6 +58,7 @@ class Bloqueo_model extends CI_Model
         );
         
         $this->db->insert('Bloqueo', $data);
+        $this->cambiarEstadoRetos($fecha, $dia, $hora, 1);
         //    $consulta = $this->db->query("CALL InsertarBloqueos("+$fecha+","+$dia+","+$hora+");");
         return "correcto";
      } catch (E $e) {
@@ -79,5 +81,13 @@ class Bloqueo_model extends CI_Model
             return false;
         }  
         
+    }
+    
+           function cambiarEstadoRetos($fecha, $dia, $hora,$estado) {
+       $sql='call EditarEstadoDesafio (?,?,?)';
+    
+       $array = array('fecha' => $fecha, 'hora' => $hora, 'estado' => $estado);
+     $this->db->query($sql, $array);
+             
     }
 }

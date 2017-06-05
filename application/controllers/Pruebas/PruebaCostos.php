@@ -17,7 +17,7 @@ class PruebaCostos extends CI_Controller {
  public function insertarCosto($costo,$dia,$hora) {
  $nombreDelTesst = "Modificacion de costos";
  $valor_esperado = "correcto";
- $notas = "Prueba de insesion de nuevo bloqueo, recibe tres parametros, el primero una fecha en formato A-M-D, un nombre del deia y un entero que es la hora de la Hora Reservable que necesitamos obtener, Retorna true si el registro a podido ser creado";
+ $notas = "Prueba de actualizacion de Costos, recibe los datos de cada una de las filas de las horas a edtitar y retorna true si losdatos pudieron ser actualizados";
    
  $this->unit->run($this->Costos_model->insertarCostos($costo,$dia,$hora),$valor_esperado ,$notas);
  echo $this->unit->report();

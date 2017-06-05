@@ -8,8 +8,15 @@
 }
 
 .scroll {
-max-height: 540px !important;
-height: 540px !important;
+max-height: 520px !important;
+height: 520px !important;
+overflow-y: scroll !important;
+overflow-x: hidden !important;
+}
+
+#scrollHoras {
+max-height: 340px !important;
+height: 340px !important;
 overflow-y: scroll !important;
 overflow-x: hidden !important;
 }
