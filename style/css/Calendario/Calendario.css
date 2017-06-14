@@ -6,9 +6,40 @@
    
     height: auto;
 }
-
 .horas div div {
-     border:2px solid black;
+   
+   text-align:center;
+}
+
+.info {
+    width: 100%;
+    background-color:#3bce43;
+    color:white;
+    text-align:center;
+    font-weight:bolder;
+   
+}
+
+.horasbox {
+     border:2px solid gray;
     height: 50px;
     width: 100%;
+    background-color:#3bce43;
+    color:white;
+    text-align:center;
+    font-weight:bolder;
+}
+
+.horasbox div {
+    
+    height: 25px;
+    width: 100%;
+    background-color:#3bce43;
+    color:white;
+    text-align:center;
+    font-weight:bolder;
+}
+
+#fechaz {
+    color: #f2f2f2; background: #434447; font-size: 40px; line-height: 74px; font-weight: 700; margin: 0 5px 24px; padding: 10px; margin: 0 5px 24px; font-family: 'Libre Baskerville', serif;
 }

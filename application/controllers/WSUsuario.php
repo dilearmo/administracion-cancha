@@ -44,6 +44,32 @@
   			}
   		}
   		
+  		public function existeCorreo_get() {
+  			$correo = $this->input->get('correo');
+  			if (isset($correo)) {
+  				$respuesta = $this->Usuario_model->existeCorreo($correo);
+  				$this->response($respuesta);
+  			}
+  		}
+  		
+  		public function usuarioHabilitado_get() {
+  			$nombreUsuario = $this->input->get('nombreUsuario');
+  			if (isset($nombreUsuario)) {
+  				$respuesta = $this->Usuario_model->usuarioHabilitado($nombreUsuario);
+  				$this->response($respuesta);
+  			}
+  		}
+  		
+  		public function esAdmin_get() {
+  			$nombreUsuario = $this->input->get('nombreUsuario');
+  			if (isset($nombreUsuario)) {
+  				$respuesta = $this->Usuario_model->esAdmin($nombreUsuario);
+  				$this->response($respuesta);
+  			} else {
+  			  $this->response(false);
+  			}
+  		}
+  
   		public function validarCredenciales_get() {
   			$nombreUsuario = $this->input->get('nombreUsuario');
   			$contrasena = $this->input->get('contrasena');
@@ -55,6 +81,8 @@
   				  } else {
   				    $this->response(false);
   				  }
+  				} else {
+  				  $this->response(false);
   				}
   			}
   		}

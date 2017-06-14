@@ -37,6 +37,16 @@ class Reservas extends CI_Controller
     }
     
     
+    public function detalleReserva() 
+    {
+        $idReserva = $this->input->get('Id');
+        if(isset($idReserva)) {
+       		$data["datosReserva"] = $this->Reservas_model->obtenerDatosReservacionPorId($idReserva);
+    		$this->load->view('masterPage');
+    		$this->load->view('Reservas/detallesReserva', $data); 
+        }
+    }
+    
     
     	public function reservaNueva()
 	{
@@ -93,7 +103,7 @@ class Reservas extends CI_Controller
     }
     
     
-        	public function reservaEdicion()
+    public function reservaEdicion()
 	{
 		$fecha = $this->input->post('Fecha');
 		$cant = $this->input->post('Jugadores');
@@ -121,6 +131,33 @@ class Reservas extends CI_Controller
 		
   }
   
-  
+function sendMail() {
+    $config = Array(
+        'protocol' => 'smtp',
+        'smtp_host' => 'ssl://smtp.googlemail.com',
+        'smtp_port' => 465,
+        'smtp_user' => 'canchalaprimavera@gmail.com',
+        'smtp_pass' => 'laprimaveracancha',
+        'charset' => 'UTF-8',
+        'mailtype'  => 'html'
+    );
+    
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+
+        $this->email->from('canchalaprimavera@gmail.com', 'Cancha La Primavera');
+        $this->email->to('dilearmo2@gmail.com');
+        
+        $this->email->subject('Confirmación de reto');
+        $this->email->message('Su reto ha sido aceptado por el equipo ######');
+        
+        if($this->email->send()){
+            echo 'Ya se envió el correo';
+            
+        }else{
+            echo "Error al enviar";
+            show_error($this->email->print_debugger());
+        }
+}
   
 }

@@ -3,6 +3,10 @@
 /* global location */
 
     $(document).ready(function() {
+        
+        
+    setMinimos();    
+     $( "#drop" ).hide(); 
    $("#Fecha").bind("change paste keyup", function() {
    return obtenerHoras(); 
 });
@@ -41,31 +45,70 @@ function llenar (dato) {
      var $valor = dato.Hora;
      $opcion.html(dato.Hora +" horas");
      $( "#drop" ).append($opcion);
+     $( "#drop" ).show();
 }
 
  
+ function setMinimos() {
+    var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("Fecha").setAttribute("min", today);
+}
+ 
 });
+
+
+
+
     </script>
     
+      
+    
+    
         <div class="container">
-            <h1>Crear Bloqueo</h1>
+            <h4 id='titulo'>Crear Bloqueo</h4>
              <form id="formNuevoUsuario" method="post" action="<?=base_url()?>index.php/Bloqueos/agregar">
                 <div class="row">
+                    
                     <div class="input-field col s12">
-                        <input name="Fecha" required id="Fecha" type="date" class="validate">
-                        
+                <div class="col s6">        
+                  <p>Fecha de bloqueo</p> 
+                  </div>
+                   <div class="col s6" >
+                <input name="Fecha" required id="Fecha" type="date" class="validate">
+                   </div>
                     </div>
                     
                     <div class="input-field col s12">
-                   <select id="drop" on required class="browser-default" name="hora">
-                   
-                           
-                                  
+                <div class="col s6">        
+                  <p>Hora de bloqueo</p> 
+                  </div>
+                   <div class="col s6" >
+                <select id="drop" on required class="browser-default" name="hora">
                    </select>
-                    </div>
-                   <div class="input-field col s12 ">
-                   <button type="submit" class="btn bloquearBtn">Crear</button>
                    </div>
+                    </div>
+                    
+                    
+                  <div class="input-field col s12">
+                <div class="col s6">        
+                 <button type="submit" class="btn bloquearBtn">Crear</button>
+                  </div>
+                   <div class="col s6" >
+                   </select>
+                   </div>
+                    </div>
+                    
                   </div>
                </form>
             </div>

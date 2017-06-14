@@ -47,9 +47,11 @@ function llenar (dato) {
      var $boton = $("<button>", {id:dato.id, "class": "btn-floating btn-large waves-effect waves-light red", "type": "button",  "value": "Cancelar",  "onclick": "eliminar(this.id)"});
      
    
-  
+     var iconoEditar = $("<i>", {"class":"material-icons"});
+      
 
-   $boton.html("X");
+   iconoEditar.html("delete_forever");
+   $boton.append(iconoEditar);
    $fecha.html(dato.Fecha);
    $Hora.html(dato.Hora +":00");
    $dia.html(dato.NombreDia);

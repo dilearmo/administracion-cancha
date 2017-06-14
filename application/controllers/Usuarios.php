@@ -84,4 +84,37 @@ class Usuarios extends CI_Controller {
         // Redirecciona a la lista de usuarios
         redirect('usuarios');
     }
+    
+    
+    // Muestra los datos de un usuario específico para ser editado
+    // El nombre de la función se debe a estética de la URL
+    public function usuario() {
+        // Recibe el nombre de usuario
+        $idUsuario = $this->input->get('IdUsuario');
+        if(isset($idUsuario)) {
+            $data['datosUsuario'] = $this->Usuario_model->obtenerUsuarioPorId($idUsuario); // Obtiene los datos del usuario a modificar
+            $this->load->view('masterPage');
+            $this->load->view('Usuario/editarUsuario', $data);
+        }
+    }
+    
+	// Función que recibe los datos del usuario modificado
+	public function editar() {
+		$idUsuario = $this->input->post('idUsuario');
+	    $nombre = $this->input->post('nombre');
+        $apellidos = $this->input->post('apellidos');
+        $contrasena = $this->input->post('contrasena');
+        $telefono = $this->input->post('telefono');
+        $correo = $this->input->post('correo');
+	    
+        // Valida que todos los datos no estén vacíos
+        if(!empty(trim($nombre)) && !empty(trim($apellidos)) && !empty(trim($correo))
+            && !empty(trim($idUsuario)) && !empty(trim($contrasena)) && isset($telefono)) {
+                //$Contrasena, $Nombre, $Apellidos, $Telefono, $NombreUsuario, $Correo ,$es_admin
+            $this->Usuario_model->actualizarUsuario($idUsuario ,$contrasena,$nombre,$apellidos, $telefono, $correo);
+            redirect('usuarios');
+        }
+        // Redirecciona a la lista de usuarios
+
+	} 
 }

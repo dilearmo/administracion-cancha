@@ -6,9 +6,7 @@
     
     var base_url = 0;
     $(document).ready(function() {
-        
         base_url = $('#base_url').val(); // Obtiene el valor de la URL base
-        
     });
     
     // Valida si el nombre de usuario existe mediante un web service

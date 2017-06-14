@@ -7,7 +7,7 @@
  var horilla = 0;
     $(document).ready(function() {
      obtenerID();
-        
+      setMinimos();   
    $("#Fecha").bind("change paste keyup", function() {
    return obtenerHoras(); 
   
@@ -189,15 +189,35 @@ function llenarDatosUsuario() {
         });
    
 });
-}  
+}
+
+  function setMinimos() {
+    var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("Fecha").setAttribute("min", today);
+}
 
      
  
 
     </script>
-    
+       <style type="text/css">
+        #titulo {
+              color: #f2f2f2; background: #ff4a4a; font-size: 75px; line-height: 74px; font-weight: 700; margin: 0 5px 24px; padding: 10px; margin: 0 5px 24px; font-family: 'Libre Baskerville', serif;
+        }
+    </style>
         <div class="container">
-            <h3>Datos de la Reserva</h3>
+            <h4>Datos de la Reserva</h4>
              <form  id="formNuevoUsuario" method="post" action="<?=base_url()?>index.php/Reservas/reservaEdicion">
                 <div class="row">
                     

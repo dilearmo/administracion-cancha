@@ -39,17 +39,67 @@
 			$this->db->where('NombreUsuario', $NombreUsuario); //which row want to upgrade  
 			return $this->db->update('Usuario');
 		}
+		
+		function actualizarUsuario($idUsuario ,$contrasena,$nombre,$apellidos, $telefono, $correo)
+		{
+			$this->db->set('Contrasena', $contrasena); //value that used to update column  
+			$this->db->set('Nombre', $nombre); //value that used to update column  
+			$this->db->set('Apellidos', $apellidos); //value that used to update column  
+			$this->db->set('Telefono', $telefono); //value that used to update column  
+			$this->db->set('Correo', $correo); //value that used to update column 
+			$this->db->where('IdUsuario', $idUsuario); //which row want to upgrade  
+			return $this->db->update('Usuario');
+		}
 
 		function existeNombreUsuario($nombre) {
 		   $this->db->where("NombreUsuario", $nombre);
 		   $query= $this->db->get('Usuario');
-				if($query->num_rows() > 0) {
+			if($query->num_rows() > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
+		function existeCorreo($correo) {
+		   $this->db->where("Correo", $correo);
+		   $query= $this->db->get('Usuario');
+			if($query->num_rows() > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
+		function usuarioHabilitado($nombreUsuario) {
+			$this->db->select('habilitado');
+			$this->db->where("NombreUsuario", $nombreUsuario);
+			$query= $this->db->get('Usuario');
+			if($query->num_rows() > 0) {
+				if($query->result()[0]->habilitado == 1) {
 					return true;
 				} else {
 					return false;
 				}
+			} else {
+				return false;
+			}
 		}
 		
+	function esAdmin($nombreUsuario) {
+		$this->db->select('Es_administrador');
+		$this->db->where("NombreUsuario", $nombreUsuario);
+		$query= $this->db->get('Usuario');
+		if($query->num_rows() > 0) {
+			if($query->result()[0]->Es_administrador == 1) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
 		
 	function existeNombreUsuarioycorreo($nombre, $correo) {
 	  //$this->db->where("NombreUsuario", $nombre);
@@ -73,9 +123,17 @@
 			$this->db->where("NombreUsuario", $nombreUsuario);
 			$consulta = $this->db->get('Usuario');
 			if($consulta->num_rows() > 0) {
-					
 				return $consulta->result()[0];
-			
+			} else {
+				return false;
+			}
+		}
+		
+		function obtenerUsuarioPorId($idUsuario) {
+			$this->db->where("IdUsuario", $idUsuario);
+			$consulta = $this->db->get('Usuario');
+			if($consulta->num_rows() > 0) {
+				return $consulta->result()[0];
 			} else {
 				return false;
 			}
@@ -107,6 +165,21 @@
 				return $consulta->result();
 			} else {
 				return false;
+			}
+		}
+		
+		function obtnerRetosporUsuario($idUsuario) {
+		$this->db->where('idUsuario', $idUsuario);
+		$this->db->from("Desafio");
+		$this->db->join('HoraReservable', 'Desafio.IdHoraReservable = HoraReservable.Id');
+    	$consulta = $this->db->get(); 
+    	
+		if($consulta->num_rows() > 0) 
+		{
+			return $consulta->result();
+		
+		} else {
+			return false;
 			}
 		}
 		

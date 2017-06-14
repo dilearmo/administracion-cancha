@@ -1,5 +1,13 @@
     <link rel="stylesheet" href="<?=base_url()?>/style/css/Horas/horas.css" type="text/css" />
     <script type="text/javascript" src="<?=base_url()?>/style/js/Costos/Costos.js"></script>
+       <style type="text/css">
+        #titulo {
+              color: #f2f2f2; background: #ff4a4a; font-size: 75px; line-height: 74px; font-weight: 700; margin: 0 5px 24px; padding: 10px; margin: 0 5px 24px; font-family: 'Libre Baskerville', serif;
+        }
+    </style>
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
     <div style="height:40px;">
     
     </div>
@@ -8,13 +16,13 @@
       <?php  echo form_open('Costos/aceptarCambios',array('id'=>'formulario','method'=>'post')) ?>
     <div class="container scroll">
         <div class="row" id="rowTopTable">
-            <h5 class="col m4">Cambio de costos</h5>
+            <h5  class="col m4">Cambio de costos</h5>
         </div>
         
         <ul class="collapsible" data-collapsible="accordion">
    
    <li>
-    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Lunes</div>
+    <div class="collapsible-header"><i class="material-icons">event</i>Lunes</div>
     <div class="  collapsible-body">
         <div class=" row">
 
@@ -196,7 +204,7 @@
 </li>
 
 <li>
-    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Martes</div>
+    <div class="collapsible-header"><i class="material-icons">event</i>Martes</div>
     <div class="  collapsible-body">
         <div class=" row">
 
@@ -378,7 +386,7 @@
 </li>
 
 <li>
-    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Miercoles</div>
+    <div class="collapsible-header"><i class="material-icons">event</i>Miercoles</div>
     <div class="  collapsible-body">
         <div class=" row">
 
@@ -560,7 +568,7 @@
 </li>
 
 <li>
-    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Jueves</div>
+    <div class="collapsible-header"><i class="material-icons">event</i>Jueves</div>
     <div class="  collapsible-body">
         <div class=" row">
 
@@ -742,7 +750,7 @@
 </li>
 
 <li>
-    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Viernes</div>
+    <div class="collapsible-header"><i class="material-icons">event</i>Viernes</div>
     <div class="  collapsible-body">
         <div class=" row">
 
@@ -924,7 +932,7 @@
 </li>
 
 <li>
-    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Sábado</div>
+    <div class="collapsible-header"><i class="material-icons">event</i>Sábado</div>
     <div class="  collapsible-body">
         <div class=" row">
 
@@ -1106,7 +1114,7 @@
 </li>
 
 <li>
-    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Domingo</div>
+    <div class="collapsible-header"><i class="material-icons">event</i>Domingo</div>
     <div class="  collapsible-body">
         <div class=" row">
 

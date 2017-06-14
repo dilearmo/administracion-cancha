@@ -4,7 +4,7 @@
 		<div class="container">
 		    <div class="row" style="margin-bottom: 0px; padding-top:70px;">
 		        <div class="col s6">
-		              <h4>Mantenimiento Usuario</h4>
+		              <h4>Consultas de Usuarios</h4>
 		        </div>
             </div>
             

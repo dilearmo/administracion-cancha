@@ -71,7 +71,8 @@ function existeNombreUsuario() {
             dataType: 'jsonp',
             success: function(response) {
                 if(response == true) {
-                    validarCredenciales(nombreUsuario, contrasena);
+                    //validarCredenciales(nombreUsuario, contrasena);
+                    esAdmin(nombreUsuario, contrasena);
                 } else {
                     toastr.error("El nombre de usuario<br><b>" + nombreUsuario + "</b><br>no existe");
                 }
@@ -84,6 +85,25 @@ function existeNombreUsuario() {
         toastr.warning("Indique su nombre de usuario<br>y contraseña");
     }
 }
+
+function esAdmin(nombreUsuario, contrasena) {
+    $.ajax({
+        url: base_url + "WSUsuario/esAdmin?nombreUsuario="+nombreUsuario,
+        dataType: "jsonp",
+        timeout: 10000,
+        success: function(response) {
+            if(response == false) {
+                toastr.error("Usted no tiene permisos para<br>ingresar como administrador");
+            } else {
+                validarCredenciales(nombreUsuario, contrasena);
+            }
+        },
+        error: function() {
+            toastr.error("Error de conexión");
+        }
+    });
+}
+
 
 function validarCredenciales(nombreUsuario, contrasena) {
     $.ajax({

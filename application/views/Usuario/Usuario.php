@@ -96,7 +96,7 @@
                                         -->
                                         
                                         <td>
-                                            <a class="btn-floating waves-effect waves-light">
+                                            <a href="<?=base_url()?>index.php/usuarios/usuario?IdUsuario=<?= $usuario->IdUsuario ?>" class="btn-floating waves-effect waves-light">
                                                 <i class="material-icons">mode_edit</i>
                                             </a>
                                         </td>

@@ -120,6 +120,23 @@ class Reservas_model extends CI_Model
     }
     
     
+    function obtenerDatosReservacionPorId($idReserva) {
+        $this->db->select('Reserva.Fecha, Reserva.CantidadDeJugadores, Reserva.Mi_Equipo, Reserva.Equipo_rival, Reserva.esta_cancelada,
+        Reserva.Notas, Usuario.Nombre, Usuario.Apellidos, Usuario.Telefono, HoraReservable.Hora, HoraReservable.Precio');
+		$this->db->from('Reserva_Usuario');
+		$this->db->join('Reserva', 'Reserva_Usuario.idReserva = Reserva.IdReserva');
+		$this->db->join('Usuario', 'Reserva_Usuario.idUsuario = Usuario.IdUsuario');
+		$this->db->join('HoraReservable', 'Reserva.IdHoraReservable = HoraReservable.Id');
+        $this->db->where("Reserva_Usuario.IdReserva", $idReserva);
+		$consulta = $this->db->get();
+		if($consulta->num_rows() > 0) {
+			return $consulta->result()[0];
+		} else {
+			return false;
+		}   
+    }
+    
+    
     function reservarxUsuario($idUser,$fecha,$dia,$hora) {
              
       $this->db->select('Reserva.IdReserva');    
@@ -141,6 +158,7 @@ class Reservas_model extends CI_Model
     $sql='call InsertarUsuarioreserva(?,?)';
     $array = array('User' =>$_SESSION["usuar"], 'Reserva' =>  $_SESSION["reserva"]);
     $this->db->query($sql, $array);
+    return true;
     }
     
         function cambiarEstadoRetos($fecha, $dia, $hora,$estado) {
@@ -153,10 +171,7 @@ class Reservas_model extends CI_Model
     
         function editar($fecha, $cant,$dia, $hora,$equipo,$idUser,$desc)
     {
-        
-       
-      
-      
+
         if(!isset($desc)) {  $desc = " No hay notas ";  }
        
         try {
@@ -228,39 +243,11 @@ class Reservas_model extends CI_Model
        }
       $this->cambiarEstadoRetos($fecha, $dia, $hora,'1');
     
-        return "correcto";
+        return true;
      } catch (E $e) {
          return "incorrecto";
      }
         
-    }
-    
-    
-    function sendMail() {
-$config = Array(
-    'protocol' => 'smtp',
-    'smtp_host' => 'ssl://smtp.googlemail.com',
-    'smtp_port' => 465,
-    'smtp_user' => 'jeanpybarquero',
-    'smtp_pass' => 'sharingan00',
-    'mailtype'  => 'html', 
-    'charset'   => 'iso-8859-1'
-);
-$this->load->library('email', $config);
-$this->email->set_newline("\r\n");
-$this->email->from('jeanpybarquero@gmail.com');
-$this->email->to('jeanbarquero_@hotmail.com');
-$this->email->subject('Email Test');
-$this->email->message('Testing the email class.');
-
-
-
-if ($this->email->send()) {
-        echo 'Your email was sent, thanks chamil.';
-    } else {
-        show_error($this->email->print_debugger());
-    }
-    
     }
     
 }

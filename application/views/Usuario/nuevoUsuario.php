@@ -5,32 +5,32 @@
              <form id="formNuevoUsuario" method="post" action="<?=base_url()?>index.php/usuarios/agregar">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="nombreUsuario" name="nombreUsuario" type="text" onblur="existeNombreUsuarioBlur()" class="validate">
+                        <input id="nombreUsuario" name="nombreUsuario" type="text" onblur="existeNombreUsuarioBlur()" class="validate" maxlength="45">
                         <label for="nombreUsuario">Nombre de usuario</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="contrasena"  name="contrasena" type="password" class="validate">
+                        <input id="contrasena"  name="contrasena" type="password" class="validate"  maxlength="45">
                         <label for="contrasena">Contraseña</label>
                     </div>
                     
                     <div class="input-field col s6">
-                        <input id="contrasena2"  name="contrasena2" type="password" class="validate">
+                        <input id="contrasena2"  name="contrasena2" type="password" class="validate"  maxlength="45">
                         <label for="contrasena2">Repetir nueva contraseña</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="nombre" name="nombre" type="text" class="validate">
+                        <input id="nombre" name="nombre" type="text" class="validate"  maxlength="20">
                         <label for="nombre">Nombre</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="apellidos" name="apellidos" type="text" class="validate">
+                        <input id="apellidos" name="apellidos" type="text" class="validate"  maxlength="20">
                         <label for="apellidos">Apellidos</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="telefono" name="telefono" type="number" class="validate">
+                        <input id="telefono" name="telefono" type="number" class="validate"  maxlength="8">
                         <label for="telefono">Teléfono</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="correo" name="correo" type="email" class="validate">
+                        <input id="correo" name="correo" type="email" class="validate"  maxlength="30">
                         <label for="correo">Correo</label>
                     </div>
                    <button type="button" class="btn bloquearBtn" onclick="existeNombreUsuario()">Crear</button>

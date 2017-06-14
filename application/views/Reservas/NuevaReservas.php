@@ -3,7 +3,7 @@
 /* global location */
 
     $(document).ready(function() {
-        
+        setMinimos();
      obtenerUsuarios();    
    $("#Fecha").bind("change paste keyup", function() {
    return obtenerHoras(); 
@@ -87,14 +87,29 @@ function llenar (dato) {
 }
 
  
+  function setMinimos() {
+    var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("Fecha").setAttribute("min", today);
+}
 });
 
 
 
     </script>
-    
+ 
         <div class="container">
-            <h3>Reservar</h3>
+            <h4 id="titulo">Reservar</h4>
              <form id="formNuevoUsuario" method="post" action="<?=base_url()?>index.php/Reservas/reservaNueva">
                 <div class="row">
                     

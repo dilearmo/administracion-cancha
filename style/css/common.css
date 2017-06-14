@@ -1,6 +1,6 @@
 .check-color:checked + label:before {
-    border-right: 2px solid green; /* You need to change the colour here */
-    border-bottom: 2px solid green; /* And here */
+    border-right: 2px solid #088A08; /* You need to change the colour here */
+    border-bottom: 2px solid #088A08; /* And here */
 }
 
 th {
@@ -29,4 +29,28 @@ button.btn {
 .container-2_0 {
     margin-left: 10%;
     width: 80%;
+}
+
+.NavLateral-title {
+    background-color: #088A08 !important;
+}
+
+.button {
+    background-color: #088A08 !important;
+}
+
+.forgot a {
+    color: #088A08 !important;
+}
+
+input[type=email]:focus:not([readonly]), 
+input[type=password]:focus:not([readonly]), 
+input[type=text]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]){
+  border-bottom: 1px solid #088A08 !important;
+  box-shadow: 0 1px 0 0 #088A08 !important;
+}
+
+.req {
+    color: #088A08 !important;
 }

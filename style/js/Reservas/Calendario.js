@@ -61,9 +61,10 @@ function obtenerHorasBloqueadas(multi) {
 function llenarUsuario (dato) {
       
       $("#"+dato.Hora).html('bloqueada');
-    $("#"+dato.Hora).css("background-color","pink");
-    $("#"+dato.Hora).css("color","black");
+    $("#"+dato.Hora).css("background-color","#e03d0f");
+    $("#"+dato.Hora).css("color","white");
     $("#"+dato.Hora).css("text-align","center");
+    $("#"+dato.Hora).css("font-weight","bolder");
 }
 
 
@@ -96,9 +97,10 @@ function llenar (dato) {
     $("#"+dato.Hora).empty();
     $("#"+dato.Hora).append($a);
      $a.html('ocupada');
-    $("#"+dato.Hora).css("background-color","orange");
+    $("#"+dato.Hora).css("background-color","#e0b310");
     $("#"+dato.Hora).css("color","white");
     $("#"+dato.Hora).css("text-align","center");
+    $("#"+dato.Hora).css("font-weight","bolder");
 }
 
 function tomarFecha(multiplicador) {
@@ -156,8 +158,12 @@ function setCookie(cname, cvalue, exdays) {
 function limpiar() {
   for (var i = 6; i <= 23 ;i++ ) {
        $("#"+i).html('');
-        $("#"+i).empty();
-       $("#"+i).css("background-color","white");
+       $("#"+i).empty();
+       $("#"+i).css("background-color","#3bce43");
+       $("#"+i).html("disponible");
+       $("#"+i).css("color","white");
+       $("#"+i).css("text-align","center");
+       $("#"+i).css("font-weight","bolder");
   }
    
 }

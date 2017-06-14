@@ -9,15 +9,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	
 	  <link href="<?=base_url()?>style/css/toastr.min.css" rel="stylesheet"> 
-	  <link href="<?=base_url()?>style/css/common.css" rel="stylesheet"> 
 	  <link href="<?=base_url()?>style/css/normalize.css" rel="stylesheet"> 
 	  <link href="<?=base_url()?>style/css/style.css" rel="stylesheet"> 
 	  <link href="<?=base_url()?>style/css/material-design-iconic-font.min.css" rel="stylesheet"> 
 	  <link href="<?=base_url()?>style/css/jquery.mCustomScrollbar.css" rel="stylesheet"> 
 	  <link href="<?=base_url()?>style/css/sweetalert.css" rel="stylesheet"> 
 	  <link href="<?=base_url()?>style/css/materialize.min.css" rel="stylesheet">
-	  <link href="<?=base_url()?>style/css/materializeIcons.css" type="text/css" rel="stylesheet">	
-	 	
+	  <link href="<?=base_url()?>style/css/materializeIcons.css" type="text/css" rel="stylesheet">
+	  <link href="<?=base_url()?>style/css/common.css" rel="stylesheet"> 
+	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	  
 	  <script src="<?=base_url()?>style/js/jquery.min.js"></script>
 	  <script src="<?=base_url()?>style/js/toastr.min.js"></script>
 	  <script src="<?=base_url()?>style/js/sweetalert.min.js"></script>
